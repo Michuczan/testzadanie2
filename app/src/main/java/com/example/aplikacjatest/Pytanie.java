@@ -1,6 +1,6 @@
 package com.example.aplikacjatest;
 
-public class pytanie {
+public class Pytanie {
     private int idZdjecia;
     private String trescPytania;
     private boolean odpowiedz;
@@ -9,7 +9,7 @@ public class pytanie {
     //udzielona odpowiedz
 
 
-    public pytanie(int idZdjecia, String trescPytania, boolean odpowiedz) {
+    public Pytanie(int idZdjecia, String trescPytania, boolean odpowiedz) {
         this.idZdjecia = idZdjecia;
         this.trescPytania = trescPytania;
         this.odpowiedz = odpowiedz;

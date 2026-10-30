@@ -8,8 +8,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class MainActivity extends AppCompatActivity {
+    private ArrayList<Pytanie> pytaniaArraylista;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +22,12 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+    }
+    private void wstawPytania(){
+        pytaniaArraylista = new ArrayList<>();
+        pytaniaArraylista.add(new Pytanie(R.drawable.ptak, "Czy ptaki to ssaki?", false));
+        pytaniaArraylista.add(new Pytanie(R.drawable.jaszczur, "Czy jaszczurki zmieniają kolor skóry?", true));
+        pytaniaArraylista.add(new Pytanie(R.drawable.sowa, "Czy to prawda, że sowa może obrócić głowę o 360 stopni?", false));
     }
 }
