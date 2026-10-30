@@ -7,7 +7,16 @@ public class Pytanie {
     //tak true, nie false
     private boolean czyPoprawnaOdpowiedz;
     //udzielona odpowiedz
+    private String podpowiedz;
 
+    private boolean wykorzystanapodpowiedz;
+
+    public Pytanie(int idZdjecia, String trescPytania, boolean odpowiedz, String podpowiedz) {
+        this.idZdjecia = idZdjecia;
+        this.trescPytania = trescPytania;
+        this.odpowiedz = odpowiedz;
+        this.podpowiedz = podpowiedz;
+    }
 
     public Pytanie(int idZdjecia, String trescPytania, boolean odpowiedz) {
         this.idZdjecia = idZdjecia;
