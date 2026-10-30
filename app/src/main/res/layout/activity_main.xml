@@ -11,16 +11,16 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="1000dp"
         android:adjustViewBounds="true"
         app:srcCompat="@drawable/ptak" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textSize="20dp" />
+        android:textSize="40dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +34,8 @@
             android:layout_weight="1"
             android:backgroundTint="#06C73F"
             android:text="Tak"
-            android:textSize="24dp"/>
+            android:textSize="24dp"
+            android:textColor="@color/white"/>
         <!--
         tło przyciskow backgroundTint
         reszta bacgroud
@@ -47,7 +48,8 @@
             android:layout_weight="1"
             android:backgroundTint="#FF0000"
             android:text="Nie"
-            android:textSize="24dp"/>
+            android:textSize="24dp"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <Button
@@ -55,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#00aeed"
-        android:text="Następne" />
+        android:text="Następne"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

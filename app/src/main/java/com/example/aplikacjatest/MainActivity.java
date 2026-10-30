@@ -1,6 +1,9 @@
 package com.example.aplikacjatest;
 
+import static android.view.View.INVISIBLE;
+
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageView;
     private Button buttonTak, buttonNie, buttonNastepny;
     private TextView textViewPytanie;
+
+    private int ktorePytanie;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +38,50 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         textViewPytanie= findViewById(R.id.textView);
         buttonTak = findViewById(R.id.button3);
-        buttonNie = findViewById(R.id.button3);
+        buttonNie = findViewById(R.id.button4);
         buttonNastepny = findViewById(R.id.button);
-
         wyswietlPytanie(0);
+        buttonNastepny.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ktorePytanie++;
+                        if(ktorePytanie<pytaniaArraylista.size()) {
+                            wyswietlPytanie(ktorePytanie);
+                        }else {
+                            buttonNastepny.setVisibility(INVISIBLE);
+                            buttonNie.setVisibility(INVISIBLE);
+                            buttonTak.setVisibility(INVISIBLE);
+                            int punkty = 0;
+                            for(Pytanie pytanie:pytaniaArraylista){
+                                if (pytanie.isCzyPoprawnaOdpowiedz()){
+                                    punkty++;
+                                }
+                            }
+                            textViewPytanie.setText("Koniec testu otrzymano " + punkty + " punkty");
+                        }
+                    }
+                }
+        );
+        buttonTak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ustawOdpowiedz(true);
+            }
+        });
+        buttonNie.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ustawOdpowiedz(false);
+            }
+        }));
+    }
+    private void ustawOdpowiedz(boolean odp){
+        if(odp == pytaniaArraylista.get(ktorePytanie).isOdpowiedz()){
+            pytaniaArraylista.get(ktorePytanie).setCzyPoprawnaOdpowiedz(true);
+        } else {
+            pytaniaArraylista.get(ktorePytanie).setCzyPoprawnaOdpowiedz(false);
+        }
     }
     private void wyswietlPytanie(int ktore){
         Pytanie pytanie = pytaniaArraylista.get(ktore);
