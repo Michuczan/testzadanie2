@@ -1,6 +1,8 @@
 package com.example.aplikacjatest;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,11 @@ public class PodpowiedzActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Intent intent = getIntent();
+        int ktorePytanie = intent.getIntExtra("nrPytania",0);
+
+        Pytanie pytanie = MainActivity.pytaniaArraylista.get(ktorePytanie);
+        TextView textView = findViewById(R.id.textView2);
+        textView.setText(pytanie.getPodpowiedz());
     }
 }

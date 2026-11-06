@@ -16,6 +16,8 @@ public class Pytanie {
         this.trescPytania = trescPytania;
         this.odpowiedz = odpowiedz;
         this.podpowiedz = podpowiedz;
+        czyPoprawnaOdpowiedz = false;
+        wykorzystanapodpowiedz = false;
     }
 
     public Pytanie(int idZdjecia, String trescPytania, boolean odpowiedz) {
@@ -43,5 +45,21 @@ public class Pytanie {
 
     public void setCzyPoprawnaOdpowiedz(boolean czyPoprawnaOdpowiedz) {
         this.czyPoprawnaOdpowiedz = czyPoprawnaOdpowiedz;
+    }
+
+    public String getPodpowiedz() {
+        return podpowiedz;
+    }
+
+    public void setPodpowiedz(String podpowiedz) {
+        this.podpowiedz = podpowiedz;
+    }
+
+    public boolean isWykorzystanapodpowiedz() {
+        return wykorzystanapodpowiedz;
+    }
+
+    public void setWykorzystanapodpowiedz(boolean wykorzystanapodpowiedz) {
+        this.wykorzystanapodpowiedz = wykorzystanapodpowiedz;
     }
 }

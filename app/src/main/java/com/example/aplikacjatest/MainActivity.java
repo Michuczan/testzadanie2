@@ -18,7 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<Pytanie> pytaniaArraylista;
+    protected static ArrayList<Pytanie> pytaniaArraylista;
     private ImageView imageView;
     private Button buttonTak, buttonNie, buttonNastepny, buttonPodpowiedz;
     private TextView textViewPytanie;
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         buttonPodpowiedz = findViewById(R.id.button2);
         wyswietlPytanie(0);
 
+
         buttonPodpowiedz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                             buttonNastepny.setVisibility(INVISIBLE);
                             buttonNie.setVisibility(INVISIBLE);
                             buttonTak.setVisibility(INVISIBLE);
+                            buttonPodpowiedz.setVisibility(INVISIBLE);
                             int punkty = 0;
                             for(Pytanie pytanie:pytaniaArraylista){
                                 if (pytanie.isCzyPoprawnaOdpowiedz()){
@@ -103,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
     }
     private void wstawPytania(){
         pytaniaArraylista = new ArrayList<>();
-        pytaniaArraylista.add(new Pytanie(R.drawable.ptak, "Czy ptaki to ssaki?", false));
-        pytaniaArraylista.add(new Pytanie(R.drawable.jaszczur, "Czy jaszczurki zmieniają kolor skóry?", true));
-        pytaniaArraylista.add(new Pytanie(R.drawable.sowa, "Czy to prawda, że sowa może obrócić głowę o 360 stopni?", false));
+        pytaniaArraylista.add(new Pytanie(R.drawable.ptak, "Czy ptaki to ssaki?", false, "Ptaki sie rodzą w jajach"));
+        pytaniaArraylista.add(new Pytanie(R.drawable.jaszczur, "Czy jaszczurki zmieniają kolor skóry?", true, "kameleon?"));
+        pytaniaArraylista.add(new Pytanie(R.drawable.sowa, "Czy to prawda, że sowa może obrócić głowę o 360 stopni?", false,"domyśl się"));
     }
 }
